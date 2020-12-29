@@ -1,0 +1,21 @@
+## Подготовка окружения для работы с БД
+
+- Установка сервера для Linux, Windows, MacOS, BSD, Solaris
+  - sudo apt-get install postgresql-12
+  - sudo apt-get install postgresql-12-server
+  - sudo postgresql-setup initdb
+  - sudo systemctl enable postgresql.service
+  - sudo systemctl start postgresql.service 
+- Установка PgSQL Admin
+  - Дистрибутивы: https://www.pgadmin.org/download/
+- Создание пользователя и базу данных
+  - `sudo su - postgres` // ctrl+d
+  - `psql` попадаем в командную строку PostgreSQL
+  - `\password postgres` устанавливаем паполь пользователю
+  - создаем нового пользователя `CREATE USER therealtoresto WITH PASSWORD 'therealtoresto';`
+  - создаем базу данных `CREATE DATABASE application OWNER toresto;`
+  - `\quit` выходим
+- Исполняем файл с SQL скриптом создания базы
+  - `sudo psql -U therealtoresto -d application -a -f example.sql`
+- Установка зависимостей (включая модуль `pg`) `npm i`
+- Запуск `node application.js`
